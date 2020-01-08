@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 
 class Graph:
@@ -18,8 +19,11 @@ class Graph:
             self.keys[target] = self.index
             self.index += 1
 
-        # Add rate to matrix
-        self.matrix[self.keys[base], self.keys[target]] = rate
+        # Calculate -log(rate)
+        val = -math.log(rate)
+
+        # Add value to matrix
+        self.matrix[self.keys[base], self.keys[target]] = val
 
     def find_negative_weight_cycle(self):
         pass

@@ -12,7 +12,7 @@ graph = Graph(len(currencies))
 for base in currencies:
     res = requests.get(f"https://api.exchangeratesapi.io/latest?base={base}")
     rates = res.json()['rates']
-    print(rates)
+
     for target in currencies:
         if target == base:
             continue
