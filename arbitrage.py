@@ -1,4 +1,22 @@
 from graph import Graph
 import requests
 
-print("hello")
+
+# Currencies to check
+currencies = ['USD', 'CAD', 'AUD', 'EUR']
+
+# Create graph
+graph = Graph(len(currencies))
+
+# Perform request to api.exchangeratesapi.io
+for base in currencies:
+    res = requests.get(f"https://api.exchangeratesapi.io/latest?base={base}")
+    rates = res.json()['rates']
+    print(rates)
+    for target in currencies:
+        if target == base:
+            continue
+
+        graph.add_edge(base, target, rates[target])
+
+graph.show()
