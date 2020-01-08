@@ -18,5 +18,6 @@ for base in currencies:
             continue
 
         graph.add_edge(base, target, rates[target])
+        print(f"Added {base}_{target} {rates[target]}")
 
 graph.show()

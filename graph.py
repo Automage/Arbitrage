@@ -4,7 +4,7 @@ import numpy as np
 class Graph:
     def __init__(self, n):
         # Create matrix of nxn dimensions (where n is the number of currencies)
-        self.matrix = np.empty((n, n))
+        self.matrix = np.zeros((n, n))
         self.keys = {}
         self.index = 0
 
